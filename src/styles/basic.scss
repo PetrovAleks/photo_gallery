@@ -1,0 +1,51 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 0;
+}
+
+body {
+	margin: 0;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 0.045em;
+}
+
+@media screen and (min-width: 1200px) {
+	body {
+		font-size: 18px;
+		line-height: 30px;
+		letter-spacing: 0.05em;
+	}
+}
+
+.list-style {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.container {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.d-flex {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+}
