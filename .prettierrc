@@ -1,0 +1,14 @@
+{
+	"tabWidth": 2,
+	"useTabs": true,
+	"semi": true,
+	"singleQuote": true,
+	"trailingComma": "all",
+	"bracketSpacing": true,
+	"jsxBracketSameLine": false,
+	"prettier.spaceBeforeFunctionParen": true,
+	"editor.formatOnType": true,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+	"typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+	"typescript.format.placeOpenBraceOnNewLineForFunctions": true
+}
