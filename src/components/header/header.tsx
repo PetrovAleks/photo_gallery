@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import Clock from '../clock/clock';
+
 const Header = () => {
 	return (
 		<header className="header d-flex">
@@ -26,6 +28,7 @@ const Header = () => {
 					</li>
 				</ul>
 			</nav>
+			<Clock />
 		</header>
 	);
 };
