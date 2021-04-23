@@ -7,10 +7,14 @@ const Card = () => {
 			<h2 className="title">Top photos</h2>
 			<Cards>
 				<div className="wrapper-card-img">
+					<div className="card-info">
+						<h3 className="card-title">Name</h3>
+						<p className="card-like">like</p>
+					</div>
 					<img
 						className="card-img"
-						src="https://cdn.pixabay.com/photo/2021/04/13/19/41/elephants-6176590_1280.jpg"
-						alt="slon"
+						src="https://cdn.pixabay.com/photo/2020/11/30/17/21/businessman-5791566_960_720.jpg"
+						alt="name"
 					/>
 				</div>
 			</Cards>
