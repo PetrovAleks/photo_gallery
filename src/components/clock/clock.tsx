@@ -25,9 +25,11 @@ const Clock = () => {
 	};
 
 	return (
-		<div className="header-clock">{`${time.hours < 10 ? '0' : ''}${
-			time.hours
-		}:${time.minute < 10 ? '0' : ''}${time.minute}`}</div>
+		<div className="header-clock">
+			{`${time.hours < 10 ? '0' : ''}${time.hours}`}
+			<span className="clock-anim">:</span>
+			{`${time.minute < 10 ? '0' : ''}${time.minute}`}
+		</div>
 	);
 };
 

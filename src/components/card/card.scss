@@ -1,0 +1,15 @@
+.top-photos {
+	padding: 10px;
+}
+
+.wrapper-card-img {
+	height: 200px;
+}
+
+.card-img {
+	position: relative;
+	max-width: 100vw;
+
+	object-fit: cover;
+	overflow: hidden;
+}

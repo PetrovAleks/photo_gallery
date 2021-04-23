@@ -1,14 +1,14 @@
 import React from 'react';
 import ListLikedPhotos from '../components/listLikedPhotos/listLikedPhotos';
+import Card from '../components/card/card';
 
 const Main = () => {
 	return (
 		<main>
-			<section>
-				<div className="container">
-					<ListLikedPhotos />
-				</div>
-			</section>
+			<div className="container">
+				<ListLikedPhotos />
+				<Card />
+			</div>
 		</main>
 	);
 };
