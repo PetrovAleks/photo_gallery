@@ -11,7 +11,7 @@ class State {
 	likedImg = [];
 	selectedImgId = null;
 
-	constructor(likedImg) {
+	constructor(likedImg: []) {
 		makeObservable(this, {
 			selectedImgId: observable,
 			likedImg: observable,
@@ -21,17 +21,17 @@ class State {
 		this.likedImg = likedImg;
 	}
 
-	isLiked(img): any {
+	isLiked(img: []): any {
 		return this.likedImg.findIndex((i) => i.id === img.id) > -1;
 	}
 
-	toggleLike(img): void {
+	toggleLike(img: []): void {
 		const index = this.likedImg.findIndex((i) => i.id === img.id);
 		if (index > -1) {
 			this.likedImg.splice(index, 1);
 			this.likedImg = [...this.likedImg];
 		} else {
-			this.likedImg = [...this.likedImg, video];
+			this.likedImg = [...this.likedImg, img];
 		}
 	}
 
