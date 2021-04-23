@@ -1,13 +1,13 @@
 import React from 'react';
 import ListLikedPhotos from '../components/listLikedPhotos/listLikedPhotos';
-import Card from '../components/card/card';
+import GridListPhotos from '../components/gridListPhotos/gridListPhotos';
 
 const Main = () => {
 	return (
 		<main>
 			<div className="container">
 				<ListLikedPhotos />
-				<Card />
+				<GridListPhotos />
 			</div>
 		</main>
 	);
