@@ -4,75 +4,28 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 
-const tileData = [
-	{
-		img:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		author: 'author',
-		like: 1,
-	},
-	{
-		img:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		author: 'author',
-		like: 1,
-	},
-	{
-		img:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		author: 'author',
-		like: 1,
-	},
-	{
-		img:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		author: 'author',
-		like: 1,
-	},
-	{
-		img:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		author: 'author',
-		like: 1,
-	},
-	{
-		img:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title:
-			'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		author: 'author',
-		like: 1,
-	},
-];
+import { observer } from 'mobx-react';
+import { IStorageImg } from '../../store/store';
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		display: 'flex',
-		flexWrap: 'wrap',
-		justifyContent: 'space-around',
-		overflow: 'hidden',
-		backgroundColor: theme.palette.background.paper,
-	},
-	gridList: {
-		width: 500,
-		height: 450,
-	},
-	icon: {
-		color: 'rgba(255, 255, 255, 0.54)',
-	},
-}));
+const GridListPhotos = observer(({ state, arrImg }: any) => {
+	const useStyles = makeStyles((theme) => ({
+		root: {
+			display: 'flex',
+			flexWrap: 'wrap',
+			justifyContent: 'space-around',
+			overflow: 'hidden',
+			backgroundColor: theme.palette.background.paper,
+		},
+		gridList: {
+			width: 500,
+			height: 450,
+		},
+		icon: {
+			color: 'rgba(255, 255, 255, 0.54)',
+		},
+	}));
 
-export default function GridListPhotos() {
+	const { toggleLike } = state;
 	const classes = useStyles();
 
 	return (
@@ -80,18 +33,23 @@ export default function GridListPhotos() {
 			<h2 className="title">Gallery</h2>
 			<div className={classes.root}>
 				<GridList cellHeight={180} className={classes.gridList}>
-					<GridListTile
-						key="Subheader"
-						cols={2}
-						style={{ height: 'auto' }}
-					></GridListTile>
-					{tileData.map((tile) => (
-						<GridListTile key={tile.img}>
+					<GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}></GridListTile>
+					{arrImg.map((tile: IStorageImg) => (
+						<GridListTile key={tile.id}>
 							<img src={tile.img} alt={tile.title} />
 							<GridListTileBar
 								title={tile.title}
 								subtitle={<span>by: {tile.author}</span>}
-								actionIcon={<button className="btn-like">+{tile.like}</button>}
+								actionIcon={
+									<button
+										className="btn-like"
+										onClick={() => {
+											toggleLike(tile);
+										}}
+									>
+										+{tile.like}
+									</button>
+								}
 							/>
 						</GridListTile>
 					))}
@@ -99,4 +57,6 @@ export default function GridListPhotos() {
 			</div>
 		</div>
 	);
-}
+});
+
+export default GridListPhotos;
