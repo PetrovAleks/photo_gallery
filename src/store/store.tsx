@@ -1,4 +1,5 @@
 import { makeObservable, observable, action } from 'mobx';
+import galleryData from './dataImg';
 
 export interface IStorageImg {
 	img: string;
@@ -9,62 +10,12 @@ export interface IStorageImg {
 	liked: boolean;
 }
 
-const galleryData: IStorageImg[] = [
-	{
-		img: 'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title: 'Title',
-		author: 'author',
-		like: 1,
-		id: 1,
-		liked: false,
-	},
-	{
-		img: 'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title: 'Title',
-		author: 'author',
-		like: 3,
-		id: 2,
-		liked: false,
-	},
-	{
-		img: 'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title: 'Title',
-		author: 'author',
-		like: 6,
-		id: 3,
-		liked: false,
-	},
-	{
-		img: 'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title: 'Title',
-		author: 'author',
-		like: 9,
-		id: 26,
-		liked: false,
-	},
-	{
-		img: 'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title: 'Title',
-		author: 'author',
-		like: 22,
-		id: 4,
-		liked: false,
-	},
-	{
-		img: 'https://cdn.pixabay.com/photo/2020/12/07/02/26/buildings-5810399__340.jpg',
-		title: 'Title',
-		author: 'author',
-		like: 1,
-		id: 5,
-		liked: false,
-	},
-];
-
 class State {
 	galleryList: IStorageImg[] = galleryData;
 	favoriteImg: IStorageImg[] | [] = [];
 	popupImg: IStorageImg | null = null;
 	renderPopup: boolean = false;
+	topImg: IStorageImg[] | [] = [];
 
 	constructor() {
 		makeObservable(this, {
@@ -72,10 +23,12 @@ class State {
 			favoriteImg: observable,
 			renderPopup: observable,
 			popupImg: observable,
+			topImg: observable,
 			toggleLike: action,
 			isFavorite: action,
 			setPopupImg: action,
 			closePopup: action,
+			sortByLikes: action,
 		});
 	}
 
@@ -103,6 +56,11 @@ class State {
 	};
 	closePopup = (): void => {
 		this.renderPopup = false;
+	};
+
+	sortByLikes = () => {
+		this.topImg = state.galleryList.sort((a, b) => b.like - a.like);
+		this.topImg.length = 5;
 	};
 }
 

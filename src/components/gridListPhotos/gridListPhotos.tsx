@@ -29,7 +29,7 @@ const GridListPhotos = observer(({ state, arrImg }: any) => {
 	const { toggleLike, isFavorite, setPopupImg } = state;
 
 	return (
-		<div key="list" className="wrapper-gallery">
+		<div className="wrapper-gallery">
 			<h2 className="title">Gallery</h2>
 			<div className={classes.root}>
 				<GridList cellHeight={180} className={classes.gridList}>
