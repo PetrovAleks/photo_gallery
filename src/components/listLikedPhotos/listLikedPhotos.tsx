@@ -5,7 +5,9 @@ const ListLikedPhotos = (props: any) => {
 	const list = props.listLiked.map((el: IStorageImg) => {
 		return (
 			<li key={el.id} className="liked-photos__item">
-				{el.author}
+				<span className="liked-photos__author"> {el.author}</span>
+				<span className="liked-photos__like">{el.like} like</span>
+				<img className="liked-photos__img" src={el.img} alt={el.title} />
 			</li>
 		);
 	});

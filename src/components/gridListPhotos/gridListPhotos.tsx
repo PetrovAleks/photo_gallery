@@ -42,7 +42,7 @@ const GridListPhotos = observer(({ state, arrImg }: any) => {
 								subtitle={<span>by: {tile.author}</span>}
 								actionIcon={
 									<button
-										className="btn-like"
+										className={`btn-like ${tile.liked ? 'btn-like--active' : null}`}
 										onClick={() => {
 											toggleLike(tile);
 											isFavorite();
