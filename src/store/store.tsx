@@ -61,20 +61,16 @@ const galleryData: Array<IStorageImg> = [
 ];
 
 class State {
-	galleryList = galleryData;
-	likedImg: Array<IStorageImg> | [] = [];
-	selectedImgId = null;
+	galleryList: IStorageImg[] = galleryData;
 
 	constructor() {
 		makeObservable(this, {
 			galleryList: observable,
-			likedImg: observable,
 			toggleLike: action,
-			addLikedImg: action,
 		});
 	}
 
-	toggleLike(img: IStorageImg): void {
+	toggleLike = (img: IStorageImg): void => {
 		if (img.liked) {
 			img.like -= 1;
 			img.liked = !img.liked;
@@ -84,15 +80,7 @@ class State {
 			img.like += 1;
 			img.liked = !img.liked;
 		}
-	}
-
-	addLikedImg(): void {
-		this.galleryList.forEach((el: IStorageImg) => {
-			if (el.liked) {
-				this.likedImg.push();
-			}
-		});
-	}
+	};
 }
 
 export const state = new State();

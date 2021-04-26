@@ -5,11 +5,12 @@ import GridListPhotos from '../components/gridListPhotos/gridListPhotos';
 import { state } from '../store/store';
 
 const Main = () => {
+	const liked = state.galleryList.filter((el) => el.liked);
 	return (
 		<main>
 			<div className="container">
-				<ListLikedPhotos />
-				<GridListPhotos arrImg={state.likedImg} state={state} />
+				<ListLikedPhotos listLiked={liked} />
+				<GridListPhotos arrImg={liked} state={state} />
 			</div>
 		</main>
 	);
