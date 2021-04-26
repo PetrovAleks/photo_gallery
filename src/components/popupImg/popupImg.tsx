@@ -6,10 +6,10 @@ const PopupImg = observer(() => {
 	return (
 		<div className="popup" onClick={state.closePopup}>
 			<div className="wrapper-popup-img">
+				<img className="popup-img" src={state.popupImg?.img} alt={state.popupImg?.title} />
 				<button className="popup-btn" onClick={state.closePopup} aria-label="close-popup">
 					X
 				</button>
-				<img className="popup-img" src={state.popupImg?.img} alt={state.popupImg?.title} />
 			</div>
 		</div>
 	);
