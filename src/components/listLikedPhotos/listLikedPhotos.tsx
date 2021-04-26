@@ -6,7 +6,7 @@ const ListLikedPhotos = (props: any) => {
 		return (
 			<li key={el.id} className="liked-photos__item">
 				<span className="liked-photos__author"> {el.author}</span>
-				<span className="liked-photos__like">{el.like} like</span>
+				<span className="liked-photos__like">{el.like} likes</span>
 				<img className="liked-photos__img" src={el.img} alt={el.title} />
 			</li>
 		);

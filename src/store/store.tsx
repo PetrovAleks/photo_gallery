@@ -93,7 +93,7 @@ class State {
 	};
 
 	isFavorite = (): IStorageImg[] => {
-		const liked = this.galleryList.filter((el) => el.liked);
+		const liked = this.galleryList.filter((el) => el.liked).sort((a, b) => b.like - a.like);
 		return (this.favoriteImg = [...liked]);
 	};
 
