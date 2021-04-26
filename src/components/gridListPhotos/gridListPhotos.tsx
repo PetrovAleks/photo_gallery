@@ -24,19 +24,19 @@ const GridListPhotos = observer(({ state, arrImg }: any) => {
 			color: 'rgba(255, 255, 255, 0.54)',
 		},
 	}));
-
-	const { toggleLike } = state;
 	const classes = useStyles();
 
+	const { toggleLike, isFavorite, setPopupImg } = state;
+
 	return (
-		<div className="wrapper-gallery">
+		<div key="list" className="wrapper-gallery">
 			<h2 className="title">Gallery</h2>
 			<div className={classes.root}>
 				<GridList cellHeight={180} className={classes.gridList}>
 					<GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}></GridListTile>
 					{arrImg.map((tile: IStorageImg) => (
 						<GridListTile key={tile.id}>
-							<img src={tile.img} alt={tile.title} />
+							<img src={tile.img} alt={tile.title} onClick={() => setPopupImg(tile)} />
 							<GridListTileBar
 								title={tile.title}
 								subtitle={<span>by: {tile.author}</span>}
@@ -45,6 +45,7 @@ const GridListPhotos = observer(({ state, arrImg }: any) => {
 										className="btn-like"
 										onClick={() => {
 											toggleLike(tile);
+											isFavorite();
 										}}
 									>
 										+{tile.like}
