@@ -4,7 +4,7 @@ import 'react-awesome-slider/dist/styles.css';
 
 const MainSlider = () => {
 	return (
-		<div className="wrapper-slider">
+		<div className="wrapper-slider container">
 			<AwesomeSlider>
 				<div className="slider-item">
 					<img

@@ -59,7 +59,7 @@ class State {
 	};
 
 	sortByLikes = () => {
-		this.topImg = state.galleryList.sort((a, b) => b.like - a.like);
+		this.topImg = [...state.galleryList].sort((a, b) => b.like - a.like);
 		this.topImg.length = 5;
 	};
 }

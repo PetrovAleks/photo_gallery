@@ -32,3 +32,15 @@
 	width: 50px;
 	height: auto;
 }
+
+@media screen and (min-width: 740px) {
+	.liked-photos__img {
+		width: 150px;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.liked-photos__img {
+		width: 250px;
+	}
+}
