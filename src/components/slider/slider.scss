@@ -1,16 +1,11 @@
 .wrapper-slider {
-	max-height: 30vh;
-	margin-bottom: 100px;
-}
-@media screen and (min-width: 740px) {
-	.wrapper-slider {
-		margin-bottom: 350px;
-	}
+	max-height: 30%;
+	margin-bottom: 20%;
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 740px) {
 	.wrapper-slider {
 		width: 950px;
-		margin-bottom: 450px;
+		margin-bottom: 10%;
 	}
 }

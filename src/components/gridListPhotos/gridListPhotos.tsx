@@ -29,7 +29,7 @@ const GridListPhotos = observer(({ state, arrImg }: any) => {
 	const { toggleLike, isFavorite, setPopupImg } = state;
 
 	return (
-		<div className="wrapper-gallery">
+		<section className="gallery">
 			<h2 className="title">Gallery</h2>
 			<div className={classes.root}>
 				<GridList cellHeight={180} className={classes.gridList}>
@@ -56,7 +56,7 @@ const GridListPhotos = observer(({ state, arrImg }: any) => {
 					))}
 				</GridList>
 			</div>
-		</div>
+		</section>
 	);
 });
 

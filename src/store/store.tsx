@@ -32,33 +32,40 @@ class State {
 		});
 	}
 
-	toggleLike = (img: IStorageImg): void => {
+	toggleLike = (img: IStorageImg): IStorageImg[] => {
 		if (img.liked) {
 			img.like -= 1;
 			img.liked = !img.liked;
-			return;
+			return this.galleryList;
 		}
 		if (!img.liked) {
 			img.like += 1;
 			img.liked = !img.liked;
-			return;
 		}
+		return this.galleryList;
 	};
 
 	isFavorite = (): IStorageImg[] => {
-		const liked = this.galleryList.filter((el) => el.liked).sort((a, b) => b.like - a.like);
-		return (this.favoriteImg = [...liked]);
+		const liked: IStorageImg[] = [];
+		this.galleryList.forEach((el) => {
+			if (el.liked) {
+				liked.push(el);
+			}
+		});
+		this.favoriteImg = liked.sort((a, b) => b.like - a.like);
+		return this.favoriteImg;
 	};
 
-	setPopupImg = (img: IStorageImg) => {
+	setPopupImg = (img: IStorageImg): void => {
 		this.renderPopup = true;
 		this.popupImg = img;
 	};
+
 	closePopup = (): void => {
 		this.renderPopup = false;
 	};
 
-	sortByLikes = () => {
+	sortByLikes = (): void => {
 		this.topImg = [...state.galleryList].sort((a, b) => b.like - a.like);
 		this.topImg.length = 5;
 	};

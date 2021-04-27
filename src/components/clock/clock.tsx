@@ -12,7 +12,7 @@ const Clock = () => {
 	});
 
 	useEffect(() => {
-		const intervalID = setInterval(() => tick(), 60000);
+		const intervalID = setInterval(() => tick(), 1000);
 		return () => {
 			clearInterval(intervalID);
 		};

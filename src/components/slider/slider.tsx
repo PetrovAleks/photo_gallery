@@ -3,9 +3,12 @@ import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 
 const MainSlider = () => {
+	const styles = {
+		'$slider-height-percentage': '10%',
+	};
 	return (
 		<div className="wrapper-slider container">
-			<AwesomeSlider>
+			<AwesomeSlider cssModule={styles}>
 				<div className="slider-item">
 					<img
 						src="https://cdn.pixabay.com/photo/2017/06/18/18/26/holi-2416686_960_720.jpg"

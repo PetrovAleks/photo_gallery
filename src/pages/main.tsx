@@ -9,8 +9,10 @@ const Main = () => {
 	return (
 		<main>
 			<div className="container">
-				<ListLikedPhotos listLiked={state.favoriteImg} />
-				<GridListPhotos arrImg={state.topImg} state={state} />
+				<div className=" main-wrapper">
+					<ListLikedPhotos />
+					<GridListPhotos arrImg={state.topImg} state={state} />
+				</div>
 			</div>
 		</main>
 	);
