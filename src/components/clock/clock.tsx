@@ -5,7 +5,7 @@ interface IClock {
 	minute: number;
 }
 
-const Clock = () => {
+const Clock = (): JSX.Element => {
 	const [time, setTime] = useState<IClock>({
 		hours: new Date().getHours(),
 		minute: new Date().getMinutes(),
@@ -13,15 +13,17 @@ const Clock = () => {
 
 	useEffect(() => {
 		const intervalID = setInterval(() => tick(), 1000);
-		return () => {
+		return (): void => {
 			clearInterval(intervalID);
 		};
 	});
 
 	const tick = (): void => {
-		setTime(() => {
-			return { hours: new Date().getHours(), minute: new Date().getMinutes() };
-		});
+		setTime(
+			(): IClock => {
+				return { hours: new Date().getHours(), minute: new Date().getMinutes() };
+			},
+		);
 	};
 
 	return (

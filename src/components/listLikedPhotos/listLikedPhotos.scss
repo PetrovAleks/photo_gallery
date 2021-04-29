@@ -19,8 +19,7 @@
 }
 
 .liked-photos__item {
-	padding: 5px;
-	height: 80px;
+	padding: 15px;
 	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
 	margin-bottom: 5px;
 	border-radius: 5px;
@@ -37,11 +36,6 @@
 	}
 }
 
-.liked-photos__img {
-	width: 50px;
-	max-height: 100%;
-}
-
 @media screen and (min-width: 740px) {
 	.liked-photos {
 		width: 50%;
@@ -52,20 +46,5 @@
 	.wrapper-liked-photos {
 		width: 100%;
 		height: 100%;
-	}
-	.liked-photos__img {
-		width: 150px;
-	}
-	.liked-photos__item {
-		height: 180px;
-	}
-}
-
-@media screen and (min-width: 1000px) {
-	.liked-photos__img {
-		width: 250px;
-	}
-	.liked-photos__item {
-		height: 380px;
 	}
 }

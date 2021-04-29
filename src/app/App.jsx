@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { observer } from 'mobx-react';
 
@@ -12,7 +12,7 @@ import { state } from '../store/store';
 
 const App = observer(() => {
 	return (
-		<>
+		<Fragment>
 			<Header />
 			{state.renderPopup ? <PopupImg /> : null}
 			<Switch>
@@ -21,7 +21,7 @@ const App = observer(() => {
 				<Redirect to="/main" />
 			</Switch>
 			<Footer />
-		</>
+		</Fragment>
 	);
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SiteNav = () => {
+const SiteNav = (): JSX.Element => {
 	return (
 		<nav className="header-nav">
 			<ul className="header-nav__list list-style d-flex">

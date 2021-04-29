@@ -2,7 +2,8 @@ import React from 'react';
 import MainSlider from '../components/slider/slider';
 import GridListPhotos from '../components/gridListPhotos/gridListPhotos';
 import { state } from '../store/store';
-const Discover = () => {
+
+const Discover = (): JSX.Element => {
 	return (
 		<section className="discover">
 			<div className="container">

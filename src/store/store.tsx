@@ -10,9 +10,15 @@ export interface IStorageImg {
 	liked: boolean;
 }
 
+export interface IFavotiteAuthor {
+	author: string;
+	likes: number;
+	id: number;
+}
+
 class State {
 	galleryList: IStorageImg[] = galleryData;
-	favoriteImg: IStorageImg[] | [] = [];
+	favoriteImg: IFavotiteAuthor[] | [] = [];
 	popupImg: IStorageImg | null = null;
 	renderPopup: boolean = false;
 	topImg: IStorageImg[] | [] = [];
@@ -45,15 +51,33 @@ class State {
 		return this.galleryList;
 	};
 
-	isFavorite = (): IStorageImg[] => {
-		const liked: IStorageImg[] = [];
-		this.galleryList.forEach((el) => {
-			if (el.liked) {
-				liked.push(el);
+	isFavorite = (user: IStorageImg): void => {
+		const authorIndex: number = this.favoriteImg.findIndex((el) => el.author === user.author);
+		const author: IFavotiteAuthor | undefined = this.favoriteImg.find(
+			(el) => el.author === user.author,
+		);
+
+		if (user.author === author?.author) {
+			if (user.liked) {
+				author.likes += user.like;
+			} else {
+				if (author.likes - user.like - 1 <= 0) {
+					this.favoriteImg.splice(authorIndex, 1);
+				}
+				if (author.likes - user.like >= 0) {
+					author.likes -= user.like + 1;
+				}
 			}
-		});
-		this.favoriteImg = liked.sort((a, b) => b.like - a.like);
-		return this.favoriteImg;
+		} else {
+			let favotiteAuthor: IFavotiteAuthor = {
+				author: user.author,
+				likes: user.like,
+				id: user.id,
+			};
+			this.favoriteImg = [...this.favoriteImg, favotiteAuthor];
+		}
+
+		this.favoriteImg.sort((a, b) => b.likes - a.likes);
 	};
 
 	setPopupImg = (img: IStorageImg): void => {

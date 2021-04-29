@@ -1,11 +1,10 @@
 .wrapper-slider {
-	max-height: 30%;
 	margin-bottom: 20%;
 }
 
 @media screen and (min-width: 740px) {
 	.wrapper-slider {
-		width: 950px;
+		max-width: 900px;
 		margin-bottom: 10%;
 	}
 }
