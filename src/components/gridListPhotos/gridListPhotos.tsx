@@ -27,7 +27,7 @@ const GridListPhotos = observer(
 		}));
 		const classes = useStyles();
 
-		const { toggleLike, isFavorite, setPopupImg } = state;
+		const { toggleLike, setPopupImg, addFavoriteImg } = state;
 
 		return (
 			<section className="gallery">
@@ -45,7 +45,7 @@ const GridListPhotos = observer(
 											className={`btn-like ${tile.liked ? 'btn-like--active' : null}`}
 											onClick={(): void => {
 												toggleLike(tile);
-												isFavorite(tile);
+												addFavoriteImg(tile);
 											}}
 										>
 											+{tile.like}

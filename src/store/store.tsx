@@ -31,7 +31,7 @@ class State {
 			popupImg: observable,
 			topImg: observable,
 			toggleLike: action,
-			isFavorite: action,
+			addFavoriteImg: action,
 			setPopupImg: action,
 			closePopup: action,
 			sortByLikes: action,
@@ -51,7 +51,7 @@ class State {
 		return this.galleryList;
 	};
 
-	isFavorite = (user: IStorageImg): void => {
+	addFavoriteImg = (user: IStorageImg): void => {
 		const authorIndex: number = this.favoriteImg.findIndex((el) => el.author === user.author);
 		const author: IFavotiteAuthor | undefined = this.favoriteImg.find(
 			(el) => el.author === user.author,
