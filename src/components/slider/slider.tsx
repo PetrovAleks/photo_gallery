@@ -1,24 +1,23 @@
 import React from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
+import galleryData from '../../store/dataImg';
 
 const MainSlider = (): JSX.Element => {
+	const sliderImg = galleryData.map(
+		(el): JSX.Element => {
+			return (
+				<div className="slider-item">
+					<img src={el.img} alt={el.title} width="100%" />
+				</div>
+			);
+		},
+	);
+	sliderImg.length = 3;
+
 	return (
 		<div className="wrapper-slider container">
-			<AwesomeSlider className="slider">
-				<div className="slider-item">
-					<img
-						src="https://cdn.pixabay.com/photo/2017/06/18/18/26/holi-2416686_960_720.jpg"
-						alt="e"
-					/>
-				</div>
-				<div className="slider-item">
-					<img
-						src="https://cdn.pixabay.com/photo/2020/09/02/11/04/landscape-5538015__340.jpg"
-						alt="e"
-					/>
-				</div>
-			</AwesomeSlider>
+			<AwesomeSlider className="slider">{sliderImg}</AwesomeSlider>
 		</div>
 	);
 };

@@ -5,10 +5,10 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 
 import { observer } from 'mobx-react';
-import { IStorageImg } from '../../store/store';
+import { IStorageImg, IProps } from '../../store/store';
 
 const GridListPhotos = observer(
-	({ state, arrImg }: any): JSX.Element => {
+	({ state, arrImg }: IProps): JSX.Element => {
 		const useStyles = makeStyles((theme) => ({
 			root: {
 				display: 'flex',

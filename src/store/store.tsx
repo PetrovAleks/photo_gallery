@@ -16,6 +16,11 @@ export interface IFavotiteAuthor {
 	id: number;
 }
 
+export interface IProps {
+	arrImg: IStorageImg[] | [];
+	state: State;
+}
+
 class State {
 	galleryList: IStorageImg[] = galleryData;
 	favoriteImg: IFavotiteAuthor[] | [] = [];
