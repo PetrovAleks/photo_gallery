@@ -20,7 +20,8 @@
 		"experimentalDecorators": true,
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
-		"noImplicitAny": true
+		"noImplicitAny": true,
+		"downlevelIteration": true
 	},
 	"include": ["src"]
 }

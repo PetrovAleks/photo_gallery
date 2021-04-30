@@ -40,6 +40,7 @@ class State {
 			setPopupImg: action,
 			closePopup: action,
 			sortByLikes: action,
+			setRandomSliderImg: action,
 		});
 	}
 
@@ -97,6 +98,31 @@ class State {
 	sortByLikes = (): void => {
 		this.topImg = [...state.galleryList].sort((a, b) => b.like - a.like);
 		this.topImg.length = 5;
+	};
+
+	setRandomSliderImg = (gallery: IStorageImg[]): JSX.Element[] => {
+		const sliderJSXElment: JSX.Element[] = [];
+		const randomNumbers = [];
+
+		for (let i = 0; i < gallery.length; i++) {
+			const randomImg = Math.floor(Math.random() * gallery.length);
+			randomNumbers.push(randomImg);
+		}
+		const uniqueRandomNumbers = [...new Set(randomNumbers)];
+
+		for (let i = 0; i < uniqueRandomNumbers.length; i++) {
+			const elSlider = (
+				<div className="slider-item" key={gallery[uniqueRandomNumbers[i]].id}>
+					<img
+						src={gallery[uniqueRandomNumbers[i]].img}
+						alt={gallery[uniqueRandomNumbers[i]].title}
+						width="100%"
+					/>
+				</div>
+			);
+			sliderJSXElment.push(elSlider);
+		}
+		return sliderJSXElment;
 	};
 }
 

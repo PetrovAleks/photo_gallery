@@ -3,16 +3,10 @@ import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import galleryData from '../../store/dataImg';
 
+import { state } from '../../store/store';
+
 const MainSlider = (): JSX.Element => {
-	const sliderImg = galleryData.map(
-		(el): JSX.Element => {
-			return (
-				<div className="slider-item">
-					<img src={el.img} alt={el.title} width="100%" />
-				</div>
-			);
-		},
-	);
+	const sliderImg = state.setRandomSliderImg(galleryData);
 	sliderImg.length = 3;
 
 	return (
